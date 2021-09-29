@@ -49,7 +49,7 @@ vingadores = Filme('vingadores', 2019, 160)
 
 got = Serie('Game of Thrones', 2011, 8)
 
-#print(vingadores.ano)
+
 print(f'Nome: {vingadores.nome} - Ano: {vingadores.ano} - Temporadas: {vingadores.duracao} - Likes: {vingadores.likes}')
 
 print(f'Nome: {got.nome} - Ano: {got.ano} - Temporadas: {got.temopradas} - Likes: {got.likes}')
