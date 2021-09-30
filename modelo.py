@@ -19,24 +19,48 @@ class Programa:                       ## Mãe
     def darLike(self):
         self.likes +=1
 
+    def __str__(self):
+        return f'{self.nome} - {self.ano} - {self.likes}'
+
 
 class Filme(Programa): ## Declaração de filho
     def __init__(self, nome, ano, duracao):
         super().__init__(nome, ano) ## 'super()' chama a classe mãe
         self.duracao = duracao
-        
+
+    def __str__(self): ## "Stringa" o retorno. Quando faz print('nome da classe'), é printado tudo que for string
+        return f'{self._nome} - {self.ano} - {vingadores.duracao} min - {self._likes} likes'   
+
 
 class Serie(Programa):
     def __init__(self, nome, ano, temporadas):
         super().__init__(nome, ano)
         self.temopradas = temporadas
 
+    def __str__(self):
+        return f'{self._nome} - {self.ano} - {got.temopradas} temporadas - {self._likes} likes'
+
+
+class Playlist:
+    def __init__(self, nome, programas):
+        self.nome = nome
+        self.programas = programas
+
+    
+    def tamanho(self):
+        return len(self.programas)
+
+
 
 vingadores = Filme('vingadores', 2019, 160)
-
 got = Serie('Game of Thrones', 2011, 8)
+hp = Filme('harry potter', 2001, 120)
+st = Serie('stranger things', 2016, 3)
 
 
-print(f'Nome: {vingadores.nome} - Ano: {vingadores.ano} - Temporadas: {vingadores.duracao} - Likes: {vingadores.likes}')
+filmes_e_series = [vingadores, got, hp, st]
 
-print(f'Nome: {got.nome} - Ano: {got.ano} - Temporadas: {got.temopradas} - Likes: {got.likes}')
+tedio = Playlist('tedio', filmes_e_series)
+
+for programa in tedio.programas:
+    print(programa)
