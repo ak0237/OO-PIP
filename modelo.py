@@ -41,15 +41,10 @@ class Serie(Programa):
         return f'{self._nome} - {self.ano} - {got.temopradas} temporadas - {self._likes} likes'
 
 
-class Playlist:
+class Playlist(list):  ## Playlist herda as propriedades de list
     def __init__(self, nome, programas):
         self.nome = nome
-        self.programas = programas
-
-    
-    def tamanho(self):
-        return len(self.programas)
-
+        super().__init__(programas)  ## Cria uma lista com programas 
 
 
 vingadores = Filme('vingadores', 2019, 160)
@@ -62,5 +57,9 @@ filmes_e_series = [vingadores, got, hp, st]
 
 tedio = Playlist('tedio', filmes_e_series)
 
-for programa in tedio.programas:
+print(f'Tamanho da playlist: {len(tedio)}') 
+
+for programa in tedio:
     print(programa)
+
+print(f'Tá ou não tá? {got in tedio}')
