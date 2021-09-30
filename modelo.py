@@ -41,10 +41,25 @@ class Serie(Programa):
         return f'{self._nome} - {self.ano} - {got.temopradas} temporadas - {self._likes} likes'
 
 
-class Playlist(list):  ## Playlist herda as propriedades de list
+class Playlist():  ## Playlist herda as propriedades de list
     def __init__(self, nome, programas):
         self.nome = nome
-        super().__init__(programas)  ## Cria uma lista com programas 
+        self._programas = programas  ## Cria uma lista com programas 
+
+    def __getitem__(self, item):  ## Cria uma lista dentro da classe Playlist, duck typing (ñ sou, mas me comporto como)
+        return self._programas[item]
+
+    @property
+    def listagem(self):
+        return self._programas
+
+    @property
+    def tamanho (self):
+        return len(self._programas)
+
+    def __len__(self): ## Outro duck typing
+        return len(self._programas)
+
 
 
 vingadores = Filme('vingadores', 2019, 160)
